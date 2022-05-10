@@ -1,6 +1,7 @@
 import collections
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
+suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
 
 
 class FrenchDeck:
@@ -16,3 +17,18 @@ class FrenchDeck:
 
     def __getitem__(self, position):
         return self._cards[position]
+
+
+def spades_high(card):
+    rank_value = FrenchDeck.ranks.index(card.rank)
+    return rank_value * len(suit_values) + suit_values[card.suit]
+
+
+def main():
+    deck = FrenchDeck()
+    for card in sorted(deck, key=spades_high):
+        print(card)
+
+
+if __name__ == '__main__':
+    main()

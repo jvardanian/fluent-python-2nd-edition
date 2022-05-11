@@ -2,7 +2,6 @@
 creator.py
 Pattern matching with mapping—requires Python ≥ 3.10
 """
-from collections import OrderedDict
 
 
 def get_creators(record: dict) -> list:
@@ -20,6 +19,7 @@ def get_creators(record: dict) -> list:
 
 
 def main():
+    from collections import OrderedDict
     b1 = dict(api=1, author='Douglas Hofstadter',
               type='book', title='Gödel, Escher, Bach')
     print(get_creators(b1))
